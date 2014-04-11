@@ -62,7 +62,50 @@ HTMLActuator.prototype.addTile = function (tile) {
   this.applyClasses(wrapper, classes);
 
   inner.classList.add("tile-inner");
-  inner.textContent = tile.value;
+  switch (tile.value)
+  {
+    case 2:
+        inner.textContent = 'α';
+        break;
+    case 4:
+        inner.textContent = 'β';
+        break;
+    case 8:
+        inner.textContent = 'γ';
+        break;
+    case 16:
+        inner.textContent = 'δ';
+        break;
+    case 32:
+        inner.textContent = 'ε';
+        break;
+    case 64:
+        inner.textContent = 'στ';
+        break;
+    case 128:
+        inner.textContent = 'ζ';
+        break;
+    case 256:
+        inner.textContent = 'η';
+        break;
+    case 512:
+        inner.textContent = 'θ';
+        break;
+    case 1024:
+        inner.textContent = 'ι';
+        break;
+    case 2048:
+        inner.textContent = 'ια';
+        break;
+    case 4096:
+        inner.textContent = 'ιβ';
+        break;
+    case 8192:
+        inner.textContent = 'ιγ';
+        break;
+    default:
+        inner.textContent = tile.value;
+  }
 
   if (tile.previousPosition) {
     // Make sure that the tile gets rendered in the previous position first
@@ -126,7 +169,7 @@ HTMLActuator.prototype.updateBestScore = function (bestScore) {
 
 HTMLActuator.prototype.message = function (won) {
   var type    = won ? "game-won" : "game-over";
-  var message = won ? "You win!" : "Game over!";
+  var message = won ? "Κερδίσατε!" : "Τέλος παιχνιδιού!";
 
   this.messageContainer.classList.add(type);
   this.messageContainer.getElementsByTagName("p")[0].textContent = message;
